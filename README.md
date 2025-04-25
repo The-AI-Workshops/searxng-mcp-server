@@ -1,4 +1,5 @@
 # SearXNG MCP Server
+[![smithery badge](https://smithery.ai/badge/@The-AI-Workshops/searxng-mcp-server)](https://smithery.ai/server/@The-AI-Workshops/searxng-mcp-server)
 
 An MCP sse implementation of the Model Context Protocol (MCP) server integrated with [SearXNG](https://github.com/searxng/searxng) for providing AI agents with powerful, privacy-respecting search capabilities.
 
@@ -36,6 +37,14 @@ docker run -d --name=searxng -p 32768:8080 -v "/root/searxng:/etc/searxng" \
 ---
 
 ## Installation
+
+### Installing via Smithery
+
+To install SearXNG Search Integration Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@The-AI-Workshops/searxng-mcp-server):
+
+```bash
+npx -y @smithery/cli install @The-AI-Workshops/searxng-mcp-server --client claude
+```
 
 ### Using uv
 
