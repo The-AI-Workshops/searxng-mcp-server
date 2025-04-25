@@ -1,0 +1,42 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      transport:
+        type: string
+        default: stdio
+        description: Transport protocol (sse or stdio)
+      searxngBaseUrl:
+        type: string
+        default: http://172.17.0.1:32768
+        description: Base URL of your SearXNG instance
+      host:
+        type: string
+        default: 0.0.0.0
+        description: Host to bind to when using SSE transport
+      port:
+        type: number
+        default: 32769
+        description: Port to listen on when using SSE transport
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'python',
+      args: ['server.py'],
+      env: {
+        TRANSPORT: config.transport,
+        SEARXNG_BASE_URL: config.searxngBaseUrl,
+        HOST: config.host,
+        PORT: String(config.port)
+      }
+    })
+  exampleConfig:
+    transport: stdio
+    searxngBaseUrl: http://localhost:32768
+    host: 0.0.0.0
+    port: 32769
