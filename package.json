@@ -1,0 +1,13 @@
+{
+  "name": "searxng-mcp-server",
+  "version": "1.0.0",
+  "description": "searxng mcp server",
+  "main": "server.py",
+  "scripts": {
+    "start": "python server.py",
+    "install-deps": "uv pip install -r requirements.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
